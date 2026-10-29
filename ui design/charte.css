@@ -74,7 +74,7 @@ html[data-theme] body { background: var(--ch-page); color: var(--ch-ink); -webki
 .ch-map .park { position: absolute; right: 20px; top: 16px; width: 130px; height: 70px; border-radius: 14px; background: var(--ch-park); }
 .ch-map .pin, .ch-map .player { position: absolute; }
 .ch-map .pin { --pin-scale: 1.1; }
-#chart .toast { position: static; opacity: 1; transform: none; max-width: none; display: inline-block; animation: none; }
+#chart .toast { position: relative; left: auto; top: auto; z-index: auto; opacity: 1; transform: none; max-width: none; display: inline-block; animation: none; }
 [data-theme='expedition'] #chart .toast { transform: rotate(-4deg); }
 .ch-cards { display: flex; gap: 26px; align-items: flex-start; }
 #chart .card-back { width: 220px; }
@@ -107,3 +107,6 @@ html[data-theme] body { background: var(--ch-page); color: var(--ch-ink); -webki
 [data-theme='arcade'] .ch-big.d { font-size: 96px; }
 [data-theme='arcade'] .ch-p, [data-theme='arcade'] .ch-sub { font-size: 18px; }
 [data-theme='arcade'] .ch-motion b { font-size: 20px; }
+
+/* Les dispositions « fixes » des UI 9 à 13 ne s'appliquent pas dans la charte */
+#chart .status { position: relative; left: auto; bottom: auto; transform: none; max-width: 100%; }

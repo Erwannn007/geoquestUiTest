@@ -17,6 +17,13 @@ Astuce : Partager → « Sur l’écran d’accueil » pour l’ouvrir en plein 
 | 6 | Bonbon | pastel, bulles, petit blob qui rebondit |
 | 7 | Atlas suisse | minimalisme noir / blanc / rouge |
 | 8 | Expédition | safari kaki, tampons, boussole de terrain |
+| 9 | Tactique | HUD vision nocturne, cibles, boutons en rail à gauche |
+| 10 | Verre liquide | style iOS, barre d’outils flottante en bas, notifications façon Dynamic Island |
+| 11 | Bande dessinée | trames, bulles de dialogue, boutons en bas à gauche, menu « GO! » |
+| 12 | Carnet de voyage | aquarelle, post-it, tampons empilés en bas à droite |
+| 13 | Art déco | noir et or, score centré, rail de losanges à droite |
+
+Les UI 9 à 13 changent aussi la disposition des boutons (`css/themes-nouveaux.css`).
 
 Chaque UI change : le point du joueur, les pins des lieux, les couleurs de la carte, le HUD, le bouton menu,
 la fiche du lieu, les cartes à collectionner (face, dos, animation de tirage), le toast, le profil et le catalogue.
@@ -26,7 +33,7 @@ la fiche du lieu, les cartes à collectionner (face, dos, animation de tirage), 
 Le dossier [`ui design/`](ui%20design/) contient une charte par UI (même structure que l’exemple Culture Go) :
 emblème, couleurs, typographie, interface, mouvement.
 
-- `ui design/pdf/` : les 8 chartes en PDF (une page longue chacune)
+- `ui design/pdf/` : les 13 chartes en PDF (une page longue chacune)
 - `ui design/apercus/` : les mêmes en PNG
 - `ui design/charte.html?theme=<id>` : la version web, rendue avec le vrai CSS du jeu
 - `ui design/charts.js` : les textes et palettes de chaque charte
@@ -50,7 +57,8 @@ js/themes.js      les UI : couleurs de carte, polices, raretés, symboles
 js/data.js        règles (copie de packages/shared) + lieux de démo
 js/game.js        écrans et logique
 css/base.css      structure commune (= UI actuelle)
-css/themes.css    une section par UI
+css/themes.css    une section par UI (1 à 8)
+css/themes-nouveaux.css  UI 9 à 13 (style + disposition)
 data/cities.json  villes GeoNames (CC-BY 4.0)
 ```
 

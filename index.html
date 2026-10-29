@@ -60,6 +60,14 @@
     .t-neon .preview .pin { border-radius: 2px; transform: rotate(45deg); background: transparent; border-color: var(--c1); box-shadow: 0 0 6px var(--c1); }
     .t-nuit .preview .pin { border-radius: 2px; transform: none; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); border: 0; }
     .t-bonbon .preview .pin { border-radius: 50%; transform: none; }
+    .t-tactique .preview .pin { border-radius: 0; transform: none; background: transparent; border: 1.5px solid var(--c3); }
+    .t-tactique .preview .player { border-radius: 0; clip-path: polygon(50% 0, 100% 100%, 50% 72%, 0 100%); border: 0; box-shadow: none; }
+    .t-verre .preview .pin { border-radius: 50%; transform: none; background: rgba(255,255,255,.7); border-color: var(--c2); }
+    .t-bd .preview .pin { border-radius: 5px; transform: none; background: #fff; border-color: #111; }
+    .t-bd .preview .player { border-color: #111; }
+    .t-carnet .preview .pin { border-radius: 58% 42% 55% 45%; transform: none; border: 0; background: var(--c3); }
+    .t-deco .preview .pin, .t-deco .preview .menu { border-radius: 0; transform: rotate(45deg); background: #0D0D0F; border: 1.5px solid var(--c1); }
+    .chip.new { background: #FF3D7F; color: #fff; }
 
     .info { flex: 1; min-width: 0; }
     .name { font-size: 22px; line-height: 1.15; margin-bottom: 4px; }
@@ -105,6 +113,9 @@
         grimoire: "'Cinzel',serif;font-weight:800", arcade: "'Press Start 2P',monospace;font-size:14px;line-height:1.6",
         neon: "'Orbitron',sans-serif;font-weight:900;font-size:18px", bonbon: "'Fredoka',sans-serif;font-weight:700",
         atlas: "'Archivo',sans-serif;font-weight:900;letter-spacing:-.5px", expedition: "'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px",
+        tactique: "'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:2px", verre: "-apple-system,'Inter Tight',sans-serif;font-weight:800",
+        bd: "'Bangers',sans-serif;font-size:30px;letter-spacing:1px", carnet: "'Caveat',cursive;font-weight:700;font-size:32px",
+        deco: "'Poiret One',sans-serif;text-transform:uppercase;letter-spacing:3px",
       };
       var bld = [[6, 30, 14, 14], [60, 60, 22, 10], [8, 100, 18, 18], [62, 102, 20, 12], [40, 28, 10, 12]];
       document.getElementById('list').innerHTML = GQ_THEMES.map(function (t, i) {
@@ -117,7 +128,7 @@
           '<i class="pin" style="left:62px;top:44px"></i><i class="pin" style="left:14px;top:84px"></i><i class="player"></i><i class="hud"></i><i class="menu"></i></div>' +
           '<div class="info"><div class="name" style="font-family:' + FONT[t.id] + '">' + t.name + '</div>' +
           '<div class="tag">' + t.tagline + '</div>' +
-          '<div class="chips">' + t.tags.map(function (g) { return '<span class="chip' + (g === 'Original' ? ' og' : '') + '">' + g + '</span>'; }).join('') +
+          '<div class="chips">' + t.tags.map(function (g) { return '<span class="chip' + (g === 'Original' ? ' og' : g === 'Nouvelle disposition' ? ' new' : '') + '">' + g + '</span>'; }).join('') +
           '<span class="dots">' + c.map(function (x) { return '<i style="background:' + x + '"></i>'; }).join('') + '</span></div></div>' +
           '<span class="go">›</span></a>';
       }).join('');

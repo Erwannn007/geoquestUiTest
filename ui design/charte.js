@@ -221,15 +221,23 @@
       </div>
     </div></div>`;
 
+  const layout = C.layout
+    ? `<div class="ch-alt"><div class="ch-wrap">
+      <div class="ch-kicker">05 — Disposition</div>
+      <div class="ch-h2">Les boutons changent de place</div>
+      <p class="ch-p" style="font-size:17px;max-width:820px">${esc(C.layout)}</p>
+    </div></div>`
+    : '';
+
   const motion = `
     <div class="ch-wrap">
-      <div class="ch-kicker">05 — Mouvement</div>
+      <div class="ch-kicker">${C.layout ? '06' : '05'} — Mouvement</div>
       <div class="ch-h2">Ce qui bouge, et comment</div>
       <div class="ch-motion">${C.motion.map((m, i) => `<div><b>0${i + 1}</b>${esc(m)}</div>`).join('')}</div>
     </div>
     <div class="ch-band ch-foot"><span>GeoQuest · ${esc(T.name)} · charte v1.0</span><span>Données © OpenStreetMap · GeoNames · OpenFreeMap</span></div>`;
 
-  document.getElementById('chart').innerHTML = head + emblem + colors + typo + ui + motion;
+  document.getElementById('chart').innerHTML = head + emblem + colors + typo + ui + layout + motion;
 
   // Image de la carte (Wikipédia), puis signal « prêt » pour l'export PDF
   const done = () => (window.__chartReady = true);
