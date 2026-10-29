@@ -540,3 +540,14 @@ section h3 { margin: 0; font-family: var(--font-display); font-size: 18px; font-
 
 /* Les marqueurs passent au-dessus des effets d'ambiance posés sur la carte (#map::after) */
 .maplibregl-marker { z-index: 1; }
+
+/* Écrans courts (iPhone SE, mini…) : la carte tirée doit tenir avec son titre et le bouton */
+@media (max-height: 740px) {
+  .draw-overlay { gap: 10px; }
+  .draw-overlay .card-art { height: calc(min(340px, 100vw - 48px) * .36); }
+  .draw-overlay .gq-bio { max-height: 76px; }
+  .draw-overlay .gq-card-body { padding: 10px 14px; gap: 4px; }
+  .draw-overlay .banner-title { font-size: 24px; }
+  .draw-overlay .card-back { width: min(280px, calc(100vw - 80px)); }
+  .continue { min-height: 46px; }
+}

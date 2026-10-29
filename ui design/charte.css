@@ -110,3 +110,9 @@ html[data-theme] body { background: var(--ch-page); color: var(--ch-ink); -webki
 
 /* Les dispositions « fixes » des UI 9 à 13 ne s'appliquent pas dans la charte */
 #chart .status { position: relative; left: auto; bottom: auto; transform: none; max-width: 100%; }
+#chart .status { right: auto; top: auto; animation: none; text-indent: 0; white-space: normal; }
+#chart .address-pill { position: relative; top: auto; left: auto; right: auto; transform: none; max-width: 100%; }
+#chart .round { position: relative; left: auto; right: auto; top: auto; bottom: auto; }
+#chart .menu-item { position: relative; left: auto; bottom: auto; margin: 0; width: auto; transform: none !important; opacity: 1 !important; animation: none !important; }
+[data-theme='seventies'] #chart .round { width: 46px; }
+[data-theme='seventies'] #chart .menu-item { width: 110px; flex: none; }

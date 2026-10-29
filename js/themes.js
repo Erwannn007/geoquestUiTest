@@ -246,4 +246,42 @@ window.GQ_THEMES = [
     },
     glyphs: { menu: '◆', back: '◆', recenter: '◎', refresh: '↻', debug: '🐞' },
   },
+  {
+    id: 'sumie',
+    name: 'Sumi-e',
+    tagline: 'Encre japonaise sur papier washi : rouleaux suspendus et sceaux vermillon.',
+    tags: ['Clair', 'Nouvelle disposition'],
+    fonts: 'Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700',
+    swatch: ['#1E1E1E', '#F3EFE6', '#B33A2B', '#6B655C', '#DCE0D0'],
+    map: {
+      bg: '#F3EFE6', residential: '#EEE9DE', park: '#DCE0D0', wood: '#D3D8C5', water: '#D5DCE0',
+      building: '#E6E0D3', buildingLine: '#CFC6B4', road: '#FBF8F1', roadMajor: '#E9E2D2', casing: '#C9C0AE',
+      rail: '#A9A090', label: '#2B2B2B', halo: '#F3EFE6', boundary: '#B33A2B',
+    },
+    accuracy: '#B33A2B',
+    rarity: {
+      common: ['#8A857C', '#F1EDE4'], uncommon: ['#4F6B4A', '#E6EBE0'], rare: ['#3A5A78', '#E2E8EE'],
+      epic: ['#6E3A5E', '#EEE2EA'], legendary: ['#B33A2B', '#F6E3DD'],
+    },
+    glyphs: { menu: '旅', back: '道', recenter: '◎', refresh: '↻', debug: '🐞' },
+  },
+  {
+    id: 'seventies',
+    name: 'Space Age 70',
+    tagline: 'Rétro-futur des années 70 : tout le HUD descend dans un tableau de bord.',
+    tags: ['Rétro', 'Nouvelle disposition'],
+    fonts: 'Righteous&family=Space+Mono:wght@700&family=Outfit:wght@400;600;700',
+    swatch: ['#4B2E1E', '#E8772E', '#E8B23A', '#2A7F7A', '#F4E4C1'],
+    map: {
+      bg: '#F4E4C1', residential: '#EED9AE', park: '#B9C98A', wood: '#A8BC78', water: '#7FB8B0',
+      building: '#E6CC98', buildingLine: '#D2B47A', road: '#FFF5DE', roadMajor: '#E8B23A', casing: '#D9BE8A',
+      rail: '#B0895A', label: '#4B2E1E', halo: '#F4E4C1', boundary: '#C8442B',
+    },
+    accuracy: '#E8772E',
+    rarity: {
+      common: ['#9C8468', '#F6ECD6'], uncommon: ['#6C8F3A', '#EAF0D8'], rare: ['#2A7F7A', '#DDEEEB'],
+      epic: ['#9B3D6B', '#F3DFE8'], legendary: ['#E8772E', '#FCE6D2'],
+    },
+    glyphs: { menu: '', back: '✺', recenter: '◉', refresh: '↻', debug: '🐞' },
+  },
 ];

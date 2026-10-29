@@ -67,6 +67,11 @@
     .t-bd .preview .player { border-color: #111; }
     .t-carnet .preview .pin { border-radius: 58% 42% 55% 45%; transform: none; border: 0; background: var(--c3); }
     .t-deco .preview .pin, .t-deco .preview .menu { border-radius: 0; transform: rotate(45deg); background: #0D0D0F; border: 1.5px solid var(--c1); }
+    .t-sumie .preview .pin { border-radius: 52% 48% 50% 50%; transform: none; border: 0; background: #1E1E1E; }
+    .t-sumie .preview .menu { border-radius: 4px; background: #B33A2B; border-color: #F7F3EA; }
+    .t-seventies .preview .pin { border-radius: 8px 8px 3px 3px; transform: none; border-color: #4B2E1E; background: #2A7F7A; }
+    .t-seventies .preview .hud { top: auto; bottom: 0; left: 0; width: 100%; height: 26px; border-radius: 10px 10px 0 0; box-shadow: 0 -3px 0 #E8B23A, 0 -6px 0 #E8772E; }
+    .t-seventies .preview .menu { bottom: 12px; background: radial-gradient(circle, #E8B23A 0 35%, #E8772E 35% 60%, #C8442B 60%); z-index: 1; }
     .chip.new { background: #FF3D7F; color: #fff; }
 
     .info { flex: 1; min-width: 0; }
@@ -116,6 +121,7 @@
         tactique: "'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:2px", verre: "-apple-system,'Inter Tight',sans-serif;font-weight:800",
         bd: "'Bangers',sans-serif;font-size:30px;letter-spacing:1px", carnet: "'Caveat',cursive;font-weight:700;font-size:32px",
         deco: "'Poiret One',sans-serif;text-transform:uppercase;letter-spacing:3px",
+        sumie: "'Shippori Mincho',serif;font-weight:800;letter-spacing:2px", seventies: "'Righteous',sans-serif;font-size:24px",
       };
       var bld = [[6, 30, 14, 14], [60, 60, 22, 10], [8, 100, 18, 18], [62, 102, 20, 12], [40, 28, 10, 12]];
       document.getElementById('list').innerHTML = GQ_THEMES.map(function (t, i) {
