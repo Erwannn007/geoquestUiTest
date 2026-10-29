@@ -51,7 +51,9 @@
   const lifetime = () => S.lifetimeBase + Object.values(S.days).reduce((a, b) => a + b, 0);
   const balance = () => lifetime() - S.spent + S.refunded;
   const drawsToday = (poiId) => (S.draws[today()] || {})[poiId] || 0;
-  const quote = (poiId) => GQ.quoteFor(drawsToday(poiId));
+  // Version de test : tirages gratuits et illimités (le jeu applique GQ.quoteFor : 1 gratuit, puis payant, plafonné)
+  const UNLIMITED_DRAWS = true;
+  const quote = (poiId) => (UNLIMITED_DRAWS ? { kind: 'free', price: 0, paidLeft: Infinity } : GQ.quoteFor(drawsToday(poiId)));
 
   /* ------------------------------------------------------------------ */
   /* Utilitaires                                                         */
@@ -611,7 +613,7 @@
       kind = 'far';
     } else if (q.kind === 'free') {
       label = 'Tirer une carte · gratuit ✦';
-      hint = 'Ton tirage gratuit du jour pour ce lieu';
+      hint = UNLIMITED_DRAWS ? 'Version de test : tirages gratuits et illimités' : 'Ton tirage gratuit du jour pour ce lieu';
     } else if (q.kind === 'paid') {
       const missing = q.price - balance();
       label = `Retirer · ${nf(q.price)} 👣`;
