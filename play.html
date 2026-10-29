@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>GeoQuest</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <div id="map"></div>
+  <div id="hud" class="hud"></div>
+  <div id="theme-chip" class="theme-chip"></div>
+  <button id="menu-btn" class="menu-btn main" aria-label="Ouvrir le menu"></button>
+  <div id="toast" class="toast"></div>
+  <div id="sheet" class="sheet place-sheet"></div>
+  <div id="menu" class="overlay menu-overlay"></div>
+  <div id="draw" class="overlay draw-overlay"></div>
+  <div id="profile" class="screen"></div>
+  <div id="catalog" class="screen"></div>
+  <div id="viewer" class="overlay viewer"></div>
+  <div id="debug" class="sheet debug-sheet"></div>
+  <div id="permission" class="permission"></div>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/countries.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/**
+ * Les différentes UI de GeoQuest. Chaque thème change :
+ * - map     : les couleurs du fond de carte (style OpenFreeMap Positron recoloré)
+ * - fonts   : les polices Google Fonts chargées
+ * - rarity  : (optionnel) les couleurs des 5 raretés
+ * - glyphs  : les symboles du bouton menu, du dos de carte, des boutons ronds
+ * Tout le reste (formes, animations, panneaux) est dans css/themes.css, sous [data-theme="<id>"].
+ */
+window.GQ_THEMES = [
+  {
+    id: 'classique',
+    name: 'Carnet d’explorateur',
+    tagline: 'L’UI actuelle du jeu : encre marine, or de boussole.',
+    tags: ['Original', 'Clair'],
+    fonts: 'Inter:wght@400;600;700;800;900',
+    swatch: ['#14213D', '#F2B705', '#1E6FE8', '#E0312B', '#EEF2F7'],
+    map: {
+      bg: '#F2EFE9', residential: '#ECE8E0', park: '#CFE8C2', wood: '#C3E0B5', water: '#A9D3F0',
+      building: '#E2DDD3', buildingLine: '#D3CCBF', road: '#FFFFFF', roadMajor: '#FFFFFF', casing: '#D9D3C7',
+      rail: '#C8C2B6', label: '#14213D', halo: '#FFFFFF', boundary: '#9AA3B5',
+    },
+    accuracy: '#1E6FE8',
+    glyphs: { menu: '✦', back: '✦', recenter: '◎', refresh: '↻', debug: '🐞' },
+  },
+  {
+    id: 'nuit',
+    name: 'Nuit polaire',
+    tagline: 'Carte sombre, verre dépoli, radar cyan qui balaie autour de toi.',
+    tags: ['Sombre', 'Glow'],
+    fonts: 'Space+Grotesk:wght@400;500;700',
+    swatch: ['#0A1324', '#38E1FF', '#7CFFCB', '#FF5C8A', '#1B2A44'],
+    map: {
+      bg: '#0B1526', residential: '#0F1B30', park: '#0F2A2A', wood: '#0E2826', water: '#06233F',
+      building: '#14233B', buildingLine: '#1D3150', road: '#1B2B45', roadMajor: '#25406A', casing: '#0B1526',
+      rail: '#22324D', label: '#8FB3D9', halo: '#0B1526', boundary: '#38E1FF',
+    },
+    accuracy: '#38E1FF',
+    rarity: {
+      common: ['#7D8BA6', '#18233A'], uncommon: ['#3BE39A', '#10302A'], rare: ['#38B6FF', '#0F2742'],
+      epic: ['#C77DFF', '#2A1A44'], legendary: ['#FFD166', '#3A2E14'],
+    },
+    glyphs: { menu: '◈', back: '◈', recenter: '⌖', refresh: '⟳', debug: '🐞' },
+  },
+  {
+    id: 'grimoire',
+    name: 'Vieux grimoire',
+    tagline: 'Parchemin sépia, encre brune, sceaux de cire sur les monuments.',
+    tags: ['Rétro', 'Serif'],
+    fonts: 'IM+Fell+English:ital@0;1&family=Cinzel:wght@600;800',
+    swatch: ['#3B2A1A', '#F3E5C4', '#9E2B25', '#B8862B', '#E5D3A8'],
+    map: {
+      bg: '#EADBB6', residential: '#E3D2A8', park: '#CFC38E', wood: '#C4B67E', water: '#B9C7B0',
+      building: '#D8C397', buildingLine: '#B79E6E', road: '#F3E7C8', roadMajor: '#F6EBCD', casing: '#A88D5E',
+      rail: '#8C7350', label: '#3B2A1A', halo: '#EADBB6', boundary: '#7A5A36',
+    },
+    accuracy: '#9E2B25',
+    rarity: {
+      common: ['#8C7B62', '#EFE3C6'], uncommon: ['#5E7B3A', '#E6E5C2'], rare: ['#2F5A7A', '#DDE2D2'],
+      epic: ['#7A2E5C', '#EBD8D2'], legendary: ['#B8862B', '#F6E6B8'],
+    },
+    glyphs: { menu: '✠', back: '❦', recenter: '✛', refresh: '↺', debug: '🐞' },
+  },
+  {
+    id: 'arcade',
+    name: 'Pixel Arcade',
+    tagline: 'Rétro 8-bit : bordures épaisses, police pixel, héros en sprite.',
+    tags: ['Rétro', 'Jeu'],
+    fonts: 'Press+Start+2P&family=VT323',
+    swatch: ['#1A1C2C', '#FFCD75', '#41A6F6', '#B13E53', '#38B764'],
+    map: {
+      bg: '#38B764', residential: '#4CC27A', park: '#257179', wood: '#1E6A5A', water: '#41A6F6',
+      building: '#A7F070', buildingLine: '#257179', road: '#F4F4F4', roadMajor: '#FFCD75', casing: '#1A1C2C',
+      rail: '#333C57', label: '#1A1C2C', halo: '#F4F4F4', boundary: '#5D275D',
+    },
+    accuracy: '#41A6F6',
+    rarity: {
+      common: ['#94B0C2', '#F4F4F4'], uncommon: ['#38B764', '#E2F7D6'], rare: ['#3B5DC9', '#DCE7FF'],
+      epic: ['#B13EB1', '#F7DDF7'], legendary: ['#EF7D57', '#FFF0C9'],
+    },
+    glyphs: { menu: '★', back: '?', recenter: '+', refresh: '↻', debug: '🐞' },
+  },
+  {
+    id: 'neon',
+    name: 'Néon 84',
+    tagline: 'Synthwave : grille violette, néons roses, coucher de soleil rétro.',
+    tags: ['Sombre', 'Néon'],
+    fonts: 'Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700',
+    swatch: ['#1A0B2E', '#FF2E97', '#00F0FF', '#FFE45C', '#3A1A5E'],
+    map: {
+      bg: '#1A0B2E', residential: '#200F38', park: '#1F1640', wood: '#1C1238', water: '#2D0F4F',
+      building: '#2A1350', buildingLine: '#FF2E97', road: '#3A1A5E', roadMajor: '#FF2E97', casing: '#120621',
+      rail: '#00F0FF', label: '#FFB3E0', halo: '#1A0B2E', boundary: '#00F0FF',
+    },
+    accuracy: '#00F0FF',
+    rarity: {
+      common: ['#9B8BB4', '#2A1A44'], uncommon: ['#00FFA3', '#0F2E2A'], rare: ['#00F0FF', '#0E2A3A'],
+      epic: ['#FF2E97', '#3A0F2E'], legendary: ['#FFE45C', '#3A3010'],
+    },
+    glyphs: { menu: '▲', back: '▲', recenter: '◉', refresh: '⟲', debug: '🐞' },
+  },
+  {
+    id: 'bonbon',
+    name: 'Bonbon',
+    tagline: 'Pastel tout doux, bulles qui rebondissent, explorateur kawaii.',
+    tags: ['Clair', 'Fun'],
+    fonts: 'Fredoka:wght@400;500;600;700',
+    swatch: ['#5B4B8A', '#FF8FB1', '#7FD8FF', '#FFD36E', '#FFF4F8'],
+    map: {
+      bg: '#FFF4F8', residential: '#FCEAF2', park: '#D4F5DC', wood: '#C6EFD0', water: '#BDE8FF',
+      building: '#F6DDEB', buildingLine: '#EFC6DB', road: '#FFFFFF', roadMajor: '#FFE7A8', casing: '#F3CFE0',
+      rail: '#E3C3F5', label: '#5B4B8A', halo: '#FFFFFF', boundary: '#C9A7F5',
+    },
+    accuracy: '#FF8FB1',
+    rarity: {
+      common: ['#B3AAC8', '#F6F3FB'], uncommon: ['#5FD3A0', '#E2FAEF'], rare: ['#6EB8FF', '#E3F1FF'],
+      epic: ['#C48BFF', '#F4E8FF'], legendary: ['#FFB547', '#FFF3DA'],
+    },
+    glyphs: { menu: '♥', back: '✿', recenter: '◎', refresh: '↻', debug: '🐞' },
+  },
+  {
+    id: 'atlas',
+    name: 'Atlas suisse',
+    tagline: 'Minimalisme typographique : noir, blanc, un seul rouge.',
+    tags: ['Clair', 'Minimal'],
+    fonts: 'Archivo:wght@400;600;800;900',
+    swatch: ['#111111', '#FFFFFF', '#FF3B1F', '#D9D9D9', '#F4F4F2'],
+    map: {
+      bg: '#F4F4F2', residential: '#EFEFEC', park: '#E3E6DF', wood: '#DDE0D8', water: '#D7DCE0',
+      building: '#E6E6E3', buildingLine: '#D2D2CE', road: '#FFFFFF', roadMajor: '#FFFFFF', casing: '#CFCFCB',
+      rail: '#BDBDB9', label: '#111111', halo: '#F4F4F2', boundary: '#111111',
+    },
+    accuracy: '#111111',
+    rarity: {
+      common: ['#9A9A9A', '#F4F4F2'], uncommon: ['#111111', '#EDEDEA'], rare: ['#2348FF', '#ECEFFF'],
+      epic: ['#7A2BFF', '#F1EAFF'], legendary: ['#FF3B1F', '#FFEDE9'],
+    },
+    glyphs: { menu: '+', back: 'GQ', recenter: '⊕', refresh: '↻', debug: '🐞' },
+  },
+  {
+    id: 'expedition',
+    name: 'Expédition',
+    tagline: 'Safari kaki, tampons de passeport, boussole de terrain.',
+    tags: ['Nature', 'Aventure'],
+    fonts: 'Bebas+Neue&family=Work+Sans:wght@400;600;700',
+    swatch: ['#2F3B2A', '#E8A33D', '#F4EBD9', '#C2462E', '#6E7F4E'],
+    map: {
+      bg: '#E9E1CC', residential: '#E2D8BE', park: '#B7C48E', wood: '#A4B57A', water: '#8FB8B5',
+      building: '#D6C9A6', buildingLine: '#BBAA80', road: '#F7F0DF', roadMajor: '#F2C46D', casing: '#B3A27A',
+      rail: '#8A7A55', label: '#2F3B2A', halo: '#F4EBD9', boundary: '#6E7F4E',
+    },
+    accuracy: '#C2462E',
+    rarity: {
+      common: ['#8C8A7A', '#F1EBDC'], uncommon: ['#6E7F4E', '#E7EBD6'], rare: ['#2E6E8C', '#DDEAEE'],
+      epic: ['#8C3E6E', '#F0DEE6'], legendary: ['#E8A33D', '#FBEBCD'],
+    },
+    glyphs: { menu: '✧', back: '⌖', recenter: '⌖', refresh: '↻', debug: '🐞' },
+  },
+];

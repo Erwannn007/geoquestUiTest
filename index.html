@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0E1424">
+  <title>GeoQuest · Choisis ton UI</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    :root {
+      --bg: #0E1424; --surface: #161E33; --line: rgba(255,255,255,.08); --text: #F1F4FA; --soft: #93A0BC; --accent: #F2B705;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; background: var(--bg); color: var(--text); }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; min-height: 100vh;
+      padding: calc(env(safe-area-inset-top) + 28px) 16px calc(env(safe-area-inset-bottom) + 40px);
+      background: radial-gradient(1000px 500px at 50% -10%, #1F2C4D, transparent 70%), var(--bg);
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    header { display: flex; gap: 14px; align-items: center; margin-bottom: 8px; }
+    header img { width: 56px; height: 56px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.4); }
+    h1 { margin: 0; font-size: 30px; font-weight: 900; letter-spacing: -.5px; }
+    .sub { color: var(--soft); font-size: 15px; line-height: 1.45; margin: 14px 0 22px; }
+    .list { display: flex; flex-direction: column; gap: 12px; }
+    .item {
+      display: flex; gap: 14px; align-items: center; padding: 10px; border-radius: 20px; text-decoration: none; color: inherit;
+      background: var(--surface); border: 1px solid var(--line); transition: transform .15s, border-color .2s;
+      opacity: 0; animation: in .5s cubic-bezier(.2,.9,.25,1) forwards; animation-delay: calc(var(--i) * 55ms);
+    }
+    .item:active { transform: scale(.98); }
+    @media (hover: hover) { .item:hover { border-color: rgba(255,255,255,.22); } }
+    @keyframes in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .num { position: absolute; top: 6px; left: 6px; font: 800 10px/1 system-ui; color: #fff; background: rgba(0,0,0,.45); padding: 3px 5px; border-radius: 6px; }
+
+    /* Aperçu miniature : un petit écran de jeu dessiné aux couleurs du thème */
+    .preview {
+      position: relative; flex: none; width: 92px; height: 132px; border-radius: 16px; overflow: hidden;
+      background: var(--m-bg); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+    }
+    .preview .water { position: absolute; left: -20px; right: -20px; top: 74px; height: 22px; background: var(--m-water); transform: rotate(-12deg); }
+    .preview .park { position: absolute; left: 52px; top: 18px; width: 50px; height: 34px; border-radius: 12px; background: var(--m-park); }
+    .preview .road { position: absolute; background: var(--m-road); }
+    .preview .road.a { left: 0; right: 0; top: 52px; height: 5px; }
+    .preview .road.b { top: 0; bottom: 0; left: 30px; width: 4px; background: var(--m-major); }
+    .preview .bld { position: absolute; background: var(--m-building); border-radius: 2px; }
+    .preview .hud { position: absolute; left: 6px; top: 8px; height: 14px; width: 34px; border-radius: 4px; background: var(--c0); }
+    .preview .hud::after { content: ''; position: absolute; left: 4px; top: 4px; width: 14px; height: 6px; border-radius: 2px; background: var(--c1); }
+    .preview .pin { position: absolute; width: 12px; height: 12px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--c3); border: 2px solid #fff; }
+    .preview .player { position: absolute; left: 40px; top: 64px; width: 12px; height: 12px; border-radius: 50%; background: var(--c2); border: 2.5px solid #fff; box-shadow: 0 0 0 6px color-mix(in srgb, var(--c2) 25%, transparent); }
+    .preview .menu { position: absolute; left: 50%; bottom: 8px; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: linear-gradient(var(--c1) 50%, var(--c0) 50%); border: 2px solid #fff; }
+    .t-arcade .preview .pin, .t-arcade .preview .player, .t-arcade .preview .menu, .t-arcade .preview .hud { border-radius: 0; }
+    .t-atlas .preview .pin { border-radius: 50%; transform: none; background: #111; }
+    .t-neon .preview .pin { border-radius: 2px; transform: rotate(45deg); background: transparent; border-color: var(--c1); box-shadow: 0 0 6px var(--c1); }
+    .t-nuit .preview .pin { border-radius: 2px; transform: none; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); border: 0; }
+    .t-bonbon .preview .pin { border-radius: 50%; transform: none; }
+
+    .info { flex: 1; min-width: 0; }
+    .name { font-size: 22px; line-height: 1.15; margin-bottom: 4px; }
+    .tag { color: var(--soft); font-size: 13.5px; line-height: 1.4; }
+    .chips { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
+    .chip { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: rgba(255,255,255,.07); color: var(--soft); }
+    .chip.og { background: var(--accent); color: #14213D; }
+    .dots { display: flex; margin-left: auto; }
+    .dots i { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--surface); margin-left: -4px; }
+    .go { flex: none; color: var(--soft); font-size: 22px; padding-right: 4px; }
+    footer { color: var(--soft); font-size: 12.5px; line-height: 1.6; margin-top: 28px; text-align: center; }
+    footer b { color: var(--text); }
+    @media (min-width: 640px) { .list { display: grid; grid-template-columns: 1fr 1fr; } .go { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="assets/icon.png" alt="">
+      <h1>GeoQuest<br><span style="color:var(--soft);font-weight:600;font-size:18px;letter-spacing:0">Choisis ton UI</span></h1>
+    </header>
+    <p class="sub">Même jeu, mêmes écrans, des ambiances différentes : le point du joueur, les pins des monuments, la carte, les boutons, les cartes à collectionner et leurs animations changent à chaque UI. Ouvre-les, joue un peu, et vote pour ta préférée.</p>
+    <div class="list" id="list"></div>
+    <footer>
+      Démo web : position simulée sur l’île de la Cité (Paris).<br>
+      Dans le jeu, <b>🐞 Debug</b> → « Téléporter au toucher » pour te déplacer jusqu’aux monuments.<br>
+      Données © contributeurs OpenStreetMap · Villes GeoNames · Tuiles OpenFreeMap
+    </footer>
+  </div>
+  <script src="js/themes.js"></script>
+  <script>
+    (function () {
+      var families = GQ_THEMES.map(function (t) { return 'family=' + t.fonts; }).join('&');
+      var l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?' + families + '&display=swap';
+      document.head.appendChild(l);
+
+      var FONT = {
+        classique: "'Inter',sans-serif;font-weight:900", nuit: "'Space Grotesk',sans-serif;font-weight:700",
+        grimoire: "'Cinzel',serif;font-weight:800", arcade: "'Press Start 2P',monospace;font-size:14px;line-height:1.6",
+        neon: "'Orbitron',sans-serif;font-weight:900;font-size:18px", bonbon: "'Fredoka',sans-serif;font-weight:700",
+        atlas: "'Archivo',sans-serif;font-weight:900;letter-spacing:-.5px", expedition: "'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px",
+      };
+      var bld = [[6, 30, 14, 14], [60, 60, 22, 10], [8, 100, 18, 18], [62, 102, 20, 12], [40, 28, 10, 12]];
+      document.getElementById('list').innerHTML = GQ_THEMES.map(function (t, i) {
+        var m = t.map, c = t.swatch;
+        var vars = '--m-bg:' + m.bg + ';--m-water:' + m.water + ';--m-park:' + m.park + ';--m-road:' + m.road + ';--m-major:' + m.roadMajor +
+          ';--m-building:' + m.building + ';--c0:' + c[0] + ';--c1:' + c[1] + ';--c2:' + c[2] + ';--c3:' + c[3] + ';--i:' + i;
+        return '<a class="item t-' + t.id + '" href="play.html?theme=' + t.id + '" style="' + vars + '">' +
+          '<div class="preview"><span class="num">' + (i + 1) + '</span><i class="park"></i><i class="water"></i><i class="road a"></i><i class="road b"></i>' +
+          bld.map(function (b) { return '<i class="bld" style="left:' + b[0] + 'px;top:' + b[1] + 'px;width:' + b[2] + 'px;height:' + b[3] + 'px"></i>'; }).join('') +
+          '<i class="pin" style="left:62px;top:44px"></i><i class="pin" style="left:14px;top:84px"></i><i class="player"></i><i class="hud"></i><i class="menu"></i></div>' +
+          '<div class="info"><div class="name" style="font-family:' + FONT[t.id] + '">' + t.name + '</div>' +
+          '<div class="tag">' + t.tagline + '</div>' +
+          '<div class="chips">' + t.tags.map(function (g) { return '<span class="chip' + (g === 'Original' ? ' og' : '') + '">' + g + '</span>'; }).join('') +
+          '<span class="dots">' + c.map(function (x) { return '<i style="background:' + x + '"></i>'; }).join('') + '</span></div></div>' +
+          '<span class="go">›</span></a>';
+      }).join('');
+    })();
+  </script>
+</body>
+</html>
