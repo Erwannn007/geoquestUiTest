@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>GeoQuest · Chartes graphiques</title>
+  <link rel="icon" href="../assets/icon.png">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; color: #F1F4FA; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+      background: radial-gradient(1000px 500px at 50% -10%, #1F2C4D, transparent 70%), #0E1424;
+      padding: calc(env(safe-area-inset-top) + 28px) 16px calc(env(safe-area-inset-bottom) + 40px);
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    a.back { color: #93A0BC; text-decoration: none; font-size: 15px; }
+    h1 { font-size: 30px; font-weight: 900; margin: 14px 0 6px; }
+    p { color: #93A0BC; margin: 0 0 22px; line-height: 1.45; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+    .item { background: #161E33; border: 1px solid rgba(255,255,255,.08); border-radius: 18px; overflow: hidden; }
+    .item img { display: block; width: 100%; aspect-ratio: 1080 / 900; object-fit: cover; object-position: top; }
+    .meta { padding: 12px; }
+    .meta b { display: block; font-size: 16px; margin-bottom: 8px; }
+    .links { display: flex; gap: 8px; }
+    .links a { flex: 1; text-align: center; padding: 8px; border-radius: 10px; background: rgba(255,255,255,.08); color: #F1F4FA; text-decoration: none; font-size: 13px; font-weight: 700; }
+    .links a.pdf { background: #F2B705; color: #14213D; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../">‹ Les UI jouables</a>
+    <h1>Chartes graphiques</h1>
+    <p>Une charte par UI : emblème, couleurs, typographie, composants d’interface et mouvement.</p>
+    <div class="grid" id="grid"></div>
+  </div>
+  <script src="../js/themes.js"></script>
+  <script>
+    document.getElementById('grid').innerHTML = GQ_THEMES.map(function (t, i) {
+      var f = (i + 1) + ' - ' + t.id;
+      return '<div class="item"><a href="charte.html?theme=' + t.id + '"><img src="apercus/' + encodeURIComponent(f) + '.png" alt="" loading="lazy"></a>' +
+        '<div class="meta"><b>' + (i + 1) + ' · ' + t.name + '</b><div class="links">' +
+        '<a href="charte.html?theme=' + t.id + '">Voir</a><a class="pdf" href="pdf/' + encodeURIComponent(f) + '.pdf">PDF</a></div></div></div>';
+    }).join('');
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* Mise en page des chartes. Les composants du jeu gardent le style de base.css / themes.css. */
+html[data-theme], html[data-theme] body { height: auto; overflow-x: hidden; overflow-y: visible; }
+html[data-theme] body { background: var(--ch-page); color: var(--ch-ink); -webkit-user-select: text; user-select: text; }
+@page { margin: 0; }
+
+#chart { max-width: 1080px; margin: 0 auto; background: var(--ch-page); color: var(--ch-ink); font-family: var(--font); }
+.ch-wrap { padding: 56px 56px; }
+.ch-band { background: var(--ch-band); color: var(--ch-band-ink); }
+.ch-alt { background: var(--ch-alt); }
+.ch-kicker { font: 600 11px/1.2 var(--font); letter-spacing: 2px; text-transform: uppercase; color: var(--ch-accent-text); }
+.ch-band .ch-kicker { color: var(--ch-band-soft); }
+.ch-h1 { font-family: var(--font-display); font-weight: var(--weight-display); font-size: 84px; line-height: .95; overflow-wrap: anywhere; margin: 14px 0 10px; text-transform: uppercase; letter-spacing: -1px; }
+.ch-h2 { font-family: var(--font-display); font-weight: var(--weight-display); font-size: 46px; line-height: 1.02; margin: 10px 0 30px; text-transform: uppercase; }
+.ch-h3 { font-family: var(--font-display); font-weight: var(--weight-display); font-size: 21px; margin: 0 0 14px; text-transform: uppercase; letter-spacing: .3px; }
+.ch-p { font-size: 15px; line-height: 1.55; margin: 0 0 10px; color: var(--ch-ink); }
+.ch-p b { font-weight: 700; }
+.ch-band .ch-p { color: var(--ch-band-ink); }
+.ch-sub { font-size: 17px; color: var(--ch-band-soft); margin: 0; }
+
+/* En-tête */
+.ch-head > div:first-child { min-width: 0; }
+.ch-head { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 52px 56px; }
+.ch-head-tile { flex: none; width: 160px; height: 160px; border-radius: 32px; display: grid; place-items: center; background: rgba(255,255,255,.1); }
+
+/* Emblème */
+.ch-row { display: flex; gap: 40px; align-items: center; }
+.ch-emblem { flex: none; width: 300px; height: 260px; border-radius: 24px; display: grid; place-items: center; background: var(--ch-alt); position: relative; overflow: hidden; }
+.ch-emblem .ch-scale { transform: scale(2.4); }
+#chart .menu-btn { position: relative; left: auto; bottom: auto; margin: 0; animation: none; }
+#chart .menu-btn::before { animation: none; }
+.ch-variants { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; margin-top: 34px; }
+.ch-var { border-radius: 16px; padding: 18px 6px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; background: var(--ch-map); }
+.ch-var span { font-size: 11px; font-weight: 600; color: var(--ch-map-ink); text-align: center; }
+.ch-pin { --pin-scale: 1; transform: scale(1.35); transform-origin: 50% 100%; height: 56px; margin-top: 18px; }
+.ch-pin .pin-halo { animation: none !important; }
+.ch-pin .inRange .pin-halo { opacity: .45; transform: scale(1.6); }
+
+/* Couleurs */
+.ch-swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.ch-sw { height: 170px; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; border: 1.5px solid rgba(0,0,0,.12); }
+.ch-sw b { font-family: var(--font-display); font-weight: var(--weight-display); font-size: 19px; text-transform: uppercase; line-height: 1.05; }
+.ch-sw code { font: 12px/1.6 ui-monospace, Menlo, monospace; opacity: .85; }
+.ch-sw small { font-size: 11.5px; line-height: 1.3; opacity: .85; }
+.ch-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 34px; }
+.ch-chips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.ch-chip { border-radius: 12px; padding: 12px; min-height: 64px; font-size: 12px; line-height: 1.35; border: 1.5px solid rgba(0,0,0,.1); }
+.ch-chip code { font: 11px ui-monospace, Menlo, monospace; display: block; opacity: .85; }
+.ch-split { display: flex; height: 44px; border-radius: 12px; overflow: hidden; border: 1.5px solid var(--ch-ink); margin-bottom: 12px; }
+.ch-rar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 34px; }
+.ch-rar div { border-radius: 12px; border: 2px solid var(--r); background: var(--rt); padding: 12px; color: #222; }
+.ch-rar b { display: block; color: var(--r); font-family: var(--font-display); font-weight: var(--weight-display); font-size: 15px; }
+.ch-rar small { font-size: 11px; display: block; margin-top: 4px; opacity: .8; }
+
+/* Typographie */
+.ch-typo { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 36px; align-items: start; }
+.ch-big { font-size: 150px; line-height: .9; margin-bottom: 18px; color: var(--ch-accent-text); }
+.ch-big.d { font-family: var(--font-display); font-weight: var(--weight-display); }
+.ch-big.b { font-family: var(--font); font-weight: 400; }
+.ch-scale-item { margin-bottom: 18px; }
+.ch-scale-item .ch-kicker { margin-bottom: 4px; }
+
+/* Interface */
+.ch-ui { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.ch-panel { border-radius: 20px; padding: 22px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); }
+.ch-light .ch-panel { background: rgba(0,0,0,.035); border-color: rgba(0,0,0,.1); }
+.ch-panel > .ch-kicker { margin-bottom: 14px; color: var(--ch-band-soft); }
+.ch-hud { display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.ch-rounds { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
+.ch-sheet { background: var(--sheet-bg); color: var(--sheet-ink); border-radius: var(--r-lg); padding: 16px; border: var(--border); display: flex; flex-direction: column; gap: 8px; }
+.ch-sheet .draw-actions .primary { animation: none; }
+.ch-map { position: relative; height: 210px; border-radius: 16px; overflow: hidden; background: var(--ch-map); }
+.ch-map .water { position: absolute; left: -40px; right: -40px; top: 140px; height: 40px; background: var(--ch-water); transform: rotate(-8deg); }
+.ch-map .road { position: absolute; background: var(--ch-road); }
+.ch-map .park { position: absolute; right: 20px; top: 16px; width: 130px; height: 70px; border-radius: 14px; background: var(--ch-park); }
+.ch-map .pin, .ch-map .player { position: absolute; }
+.ch-map .pin { --pin-scale: 1.1; }
+#chart .toast { position: static; opacity: 1; transform: none; max-width: none; display: inline-block; animation: none; }
+[data-theme='expedition'] #chart .toast { transform: rotate(-4deg); }
+.ch-cards { display: flex; gap: 26px; align-items: flex-start; }
+#chart .card-back { width: 220px; }
+#chart .cb-glyph { font-size: 70px; }
+.ch-motion { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ch-motion div { border-radius: 16px; padding: 18px; background: var(--ch-alt); font-size: 14px; line-height: 1.45; }
+.ch-motion b { display: block; font-family: var(--font-display); font-weight: var(--weight-display); font-size: 30px; color: var(--ch-accent-text); margin-bottom: 6px; }
+.ch-foot { padding: 26px 56px; font-size: 12px; display: flex; justify-content: space-between; }
+
+@media (max-width: 760px) {
+  .ch-wrap, .ch-head { padding: 34px 18px; }
+  .ch-h1 { font-size: 54px; }
+  .ch-h2 { font-size: 30px; }
+  .ch-head-tile { width: 96px; height: 96px; }
+  .ch-row, .ch-cards { flex-direction: column; align-items: stretch; }
+  .ch-emblem { width: 100%; }
+  .ch-variants { grid-template-columns: repeat(4, 1fr); }
+  .ch-swatches, .ch-rar { grid-template-columns: 1fr 1fr; }
+  .ch-cols, .ch-ui, .ch-typo, .ch-motion { grid-template-columns: 1fr; }
+  .ch-chips { grid-template-columns: 1fr 1fr; }
+  .ch-big { font-size: 100px; }
+  .ch-foot { flex-direction: column; gap: 6px; padding: 20px 18px; }
+}
+
+/* Press Start 2P est très large : titres réduits */
+[data-theme='arcade'] .ch-h1 { font-size: 54px; line-height: 1.25; letter-spacing: 0; }
+[data-theme='arcade'] .ch-h2 { font-size: 26px; line-height: 1.5; }
+[data-theme='arcade'] .ch-h3 { font-size: 13px; line-height: 1.6; }
+[data-theme='arcade'] .ch-sw b, [data-theme='arcade'] .ch-rar b { font-size: 11px; line-height: 1.6; }
+[data-theme='arcade'] .ch-big.d { font-size: 96px; }
+[data-theme='arcade'] .ch-p, [data-theme='arcade'] .ch-sub { font-size: 18px; }
+[data-theme='arcade'] .ch-motion b { font-size: 20px; }

@@ -21,6 +21,16 @@ Astuce : Partager → « Sur l’écran d’accueil » pour l’ouvrir en plein 
 Chaque UI change : le point du joueur, les pins des lieux, les couleurs de la carte, le HUD, le bouton menu,
 la fiche du lieu, les cartes à collectionner (face, dos, animation de tirage), le toast, le profil et le catalogue.
 
+## Chartes graphiques
+
+Le dossier [`ui design/`](ui%20design/) contient une charte par UI (même structure que l’exemple Culture Go) :
+emblème, couleurs, typographie, interface, mouvement.
+
+- `ui design/pdf/` : les 8 chartes en PDF (une page longue chacune)
+- `ui design/apercus/` : les mêmes en PNG
+- `ui design/charte.html?theme=<id>` : la version web, rendue avec le vrai CSS du jeu
+- `ui design/charts.js` : les textes et palettes de chaque charte
+
 ## Ce qui est repris du jeu
 
 Uniquement ce qui existe dans `apps/mobile` et `packages/shared` : écran de permission, HUD (score, adresse,
